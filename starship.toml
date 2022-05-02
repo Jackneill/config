@@ -1,0 +1,90 @@
+format = """
+$username\
+$hostname\
+$localip\
+$shlvl\
+$singularity\
+$directory\
+$kubernetes\
+$vcsh\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+$container\
+$helm\
+$pulumi\
+$terraform\
+$vagrant\
+$nix_shell\
+$conda\
+$aws\
+$gcloud\
+$custom\
+$jobs\
+$status\
+$shell\
+$line_break\
+$sudo\
+$cmd_duration\
+$character"""
+
+add_newline = false
+
+[username]
+format = "[$user]($style)@"
+show_always = true
+
+[hostname]
+ssh_only = false
+format = "[$hostname](bold red):"
+disabled = false
+
+[directory]
+truncate_to_repo = false
+truncation_length = 0
+format = "[$path]($style)[$read_only]($read_only_style) "
+
+[cmd_duration]
+disabled = false
+show_milliseconds = true
+min_time = 1
+format = "[$duration]($style)"
+
+[docker_context]
+symbol = ""
+format = "[docker:$context]($style) "
+
+[git_branch]
+format = "[$symbol$branch]($style) "
+
+[git_metrics]
+disabled = false
+
+[vagrant]
+format = "[vagrant:$version](bold white) "
+symbol = ""
+disabled = true
+
+[terraform]
+format = "[terraform:$workspace]($style) "
+
+[sudo]
+disabled = true
+format = "[as $symbol]($style) "
+
+[package]
+disabled = true
+
+[kubernetes]
+format = "[k8s:$context/$namespace](green) "
+disabled = false
+
+[helm]
+disabled = false
+format = "[helm:($version)]($style)"
